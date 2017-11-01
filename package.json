@@ -19,11 +19,10 @@
     "bugs": {
         "url": "https://github.com/santigarcor/vscode-phpunit-extended/issues"
     },
-    "license": "SEE LICENSE IN LICENSE.md",
+    "license": "MIT",
     "keywords": [
         "phpunit",
         "test",
-        "unittest",
         "php"
     ],
     "activationEvents": [

@@ -1,6 +1,6 @@
 # Phpunit for VSCode
 ## Setup
-* Install [phpunit](https://phpunit.de/).
+* Install [phpunit](https://phpunit.de/) or have phpunit installed through composer.
 * Set the config values:
 ```JSON
 {
@@ -15,23 +15,27 @@
 Run with (`Cmd+Shift+P` on OSX or `Ctrl+Shift+P` on Windows and Linux) and execute:
 * `PHPUnit Test Nearest`: This command will search the nearest function from the cursor position until the file's beginning.
 
-![vscode-phpunit-test-function](images/test-nearest.gif)
+![test-nearest](images/test-nearest.gif)
 
 * `PHPUnit Test Current File`: This command will test the current active file.
 
-![vscode-phpunit-test-function](images/test-file.gif)
+![test-file](images/test-file.gif)
 
 * `PHPUnit Test All Suite`: This command will run all the test suite.
 
-![vscode-phpunit-test-function](images/test-suite.gif)
+![test-suite](images/test-suite.gif)
 
 * `PHPUnit Cancel Current Test`: This command will cancel the current running test.
 
-![vscode-phpunit-test-function](images/test-cancel.gif)
+![test-pick](images/test-pick.gif)
+
+* `PHPUnit Test`: This command will show a window to pick the test to run.
+
+![test-cancel](images/test-cancel.gif)
 
 * `PHPUnit Run Last Test`: This command will run the last test ran.
 
-![vscode-phpunit-test-function](images/test-last.gif)
+![test-last](images/test-last.gif)
 
 ## Notes / Tips / Advanced
 * **args** is recommended to set in your 'workspace settings'. You can add any phpunit args, check phpunit --help.
