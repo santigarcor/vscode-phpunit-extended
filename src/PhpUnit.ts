@@ -59,7 +59,7 @@ export class PhpUnit {
         let phpunitProcess = cp.spawn(
             phpunitPath,
             this.args,
-            { cwd: workingDirectory.replace(/(\/[^\/]*\.[^\/]+)$/, '') }
+            { cwd: workingDirectory.replace(/([\\\/][^\\\/]*\.[^\\\/]+)$/, '') }
         );
 
         PhpUnit.currentTest = phpunitProcess;
