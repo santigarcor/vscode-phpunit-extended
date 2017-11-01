@@ -24,12 +24,12 @@ export function activate(context: ExtensionContext) {
 		PHPUnitTestRunner.runNearestTest();
 	}));
 
-	context.subscriptions.push(commands.registerCommand('phpunit.TestDirectory', () => {
-		PHPUnitTestRunner.runTestDirectory()
-	}));
-
 	context.subscriptions.push(commands.registerCommand('phpunit.LastTest', () => {
 		PHPUnitTestRunner.runLastTest()
+	}));
+
+	context.subscriptions.push(commands.registerCommand('phpunit.CancelCurrentTest', () => {
+		PHPUnitTestRunner.cancelCurrentTest()
 	}));
 }
 

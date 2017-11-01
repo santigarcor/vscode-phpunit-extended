@@ -7,6 +7,7 @@ export class PhpUnit {
     private putFsPathIntoArgs;
     private outputChannel;
     public static lastCommand;
+    public static currentTest;
 
     constructor(outputChannel, args: string[], putFsPathIntoArgs: boolean = true) {
         this.outputChannel = outputChannel;
@@ -55,12 +56,14 @@ export class PhpUnit {
             this.args.push(window.activeTextEditor.document.uri.fsPath);
         }
 
-
         let phpunitProcess = cp.spawn(
             phpunitPath,
             this.args,
             { cwd: workingDirectory.replace(/(\/[^\/]*\.[^\/]+)$/, '') }
         );
+
+        PhpUnit.currentTest = phpunitProcess;
+
         this.outputChannel.appendLine(phpunitPath + ' ' + this.args.join(' '));
 
         phpunitProcess.stderr.on("data", (buffer: Buffer) => {
@@ -70,6 +73,12 @@ export class PhpUnit {
             this.outputChannel.append(buffer.toString());
         });
 
+        phpunitProcess.on("exit", (code, signal) => {
+            if (signal != null) {
+                this.outputChannel.append('Cancelled');
+            }
+        });
+
         this.outputChannel.show();
     }
 
@@ -77,10 +86,10 @@ export class PhpUnit {
         let rootPath = workspace.rootPath;
 
         if (currentPath == '') {
-            let filePath = window.activeTextEditor.document.uri.path;
-            currentPath = filePath.replace(/(\/[^\/]*\.[^\/]+)$/, '');
+            let filePath = window.activeTextEditor.document.uri.fsPath;
+            currentPath = filePath.replace(/([\\\/][^\\\/]*\.[^\\\/]+)$/, '');
         } else {
-            currentPath = currentPath.replace(/(\/[^\/]*)$/, '');
+            currentPath = currentPath.replace(/[\\\/][^\\\/]*$/, '');
         }
 
         let fileFullPath = `${currentPath}/${fileRelativeName}`;
@@ -103,5 +112,14 @@ export class PhpUnit {
         }
 
         return workingDirectory;
+    }
+
+    static cancelCurrentTest() {
+        if (PhpUnit.currentTest) {
+            PhpUnit.currentTest.kill();
+            PhpUnit.currentTest = null;
+        } else {
+            window.showInformationMessage("There are no tests running.");
+        }
     }
 }

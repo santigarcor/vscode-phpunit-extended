@@ -31,8 +31,8 @@
         "onCommand:phpunit.TestFile",
         "onCommand:phpunit.TestSuite",
         "onCommand:phpunit.TestNearest",
-        "onCommand:phpunit.TestDirectory",
-        "onCommand:phpunit.LastTest"
+        "onCommand:phpunit.LastTest",
+        "onCommand:phpunit.CancelCurrentTest"
     ],
     "main": "./out/src/extension",
     "contributes": {
@@ -54,12 +54,12 @@
                 "title": "PHPUnit Test Nearest"
             },
             {
-                "command": "phpunit.TestDirectory",
-                "title": "PHPUnit Test Directory"
-            },
-            {
                 "command": "phpunit.LastTest",
                 "title": "PHPUnit Run Last Test"
+            },
+            {
+                "command": "phpunit.CancelCurrentTest",
+                "title": "PHPUnit Cancel Current Test"
             }
         ],
         "configuration": {

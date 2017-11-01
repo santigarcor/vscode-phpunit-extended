@@ -6,6 +6,7 @@ import { CurrentFileTest } from './TestHandlers/CurrentFileTest';
 import { TestSuite } from './TestHandlers/TestSuite';
 import { NeareastTest } from './TestHandlers/NeareastTest';
 import { RunLastTest } from './TestHandlers/RunLastTest';
+import { PhpUnit } from "./PhpUnit";
 
 import cp = require('child_process');
 const fs = require('fs');
@@ -38,14 +39,9 @@ export class TestRunner {
         this.executeTest('last');
     }
 
-    public runTestDirectory() {
-        // const editor = vscode.window.activeTextEditor;
-        // if (editor) {
-        //     let currentDir = editor.document.uri.fsPath.replace(/(\/|\\)\w*\.php$/i, '');
-        //     // this.execTest(`${currentDir}`);
-        // } else {
-        //     console.error("Couldn't determine directory. Make sure you have a file open in the directory you want to test.");
-        // }
+    public cancelCurrentTest()
+    {
+        PhpUnit.cancelCurrentTest();
     }
 
     private executeTest(type: string) {
@@ -74,22 +70,4 @@ export class TestRunner {
 
         testHandler.run();
     }
-
-  /*   private execTest(directory: string, nearest = false)
-    {
-        if (directory != null && directory != "")
-        {
-            args.push(directory);
-
-            // Run directory test.
-            this.resolvePhpUnit(args, false);
-            return;
-        } else if (!editor)
-        {
-            // Run test according to --configuration flag.
-            this.resolvePhpUnit(args, false);
-            return;
-        }
-
-    } */
 }
