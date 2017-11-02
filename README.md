@@ -25,17 +25,17 @@ Run with (`Cmd+Shift+P` on OSX or `Ctrl+Shift+P` on Windows and Linux) and execu
 
 ![test-suite](images/test-suite.gif)
 
-* `PHPUnit Cancel Current Test`: This command will cancel the current running test.
-
-![test-pick](images/test-pick.gif)
-
 * `PHPUnit Test`: This command will show a window to pick the test to run.
 
-![test-cancel](images/test-cancel.gif)
+![test-pick](images/test-pick.gif)
 
 * `PHPUnit Run Last Test`: This command will run the last test ran.
 
 ![test-last](images/test-last.gif)
+
+* `PHPUnit Cancel Current Test`: This command will cancel the current running test.
+
+![test-cancel](images/test-cancel.gif)
 
 ## Notes / Tips / Advanced
 * **args** is recommended to set in your 'workspace settings'. You can add any phpunit args, check phpunit --help.
