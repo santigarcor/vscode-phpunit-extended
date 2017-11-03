@@ -56,8 +56,18 @@ export class PhpUnit {
             this.args.push(window.activeTextEditor.document.uri.fsPath);
         }
 
+        let command = '';
+
+        if (/^win/.test(process.platform)) {
+            command = 'cmd';
+            this.args.unshift(phpunitPath);
+            this.args.unshift('/c');
+        } else {
+            command = phpunitPath;
+        }
+
         let phpunitProcess = cp.spawn(
-            phpunitPath,
+            command,
             this.args,
             { cwd: workingDirectory.replace(/([\\\/][^\\\/]*\.[^\\\/]+)$/, '') }
         );

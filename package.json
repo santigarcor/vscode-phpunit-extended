@@ -2,7 +2,7 @@
     "name": "phpunit-extended",
     "displayName": "PHPUnit Extended",
     "description": "Run PHPUnit tests from VSCode.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publisher": "santigarcor",
     "icon": "images/phpunit.png",
     "engines": {
