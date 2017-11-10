@@ -45,16 +45,16 @@ export class PhpUnit {
             return;
         }
 
+        if (this.putFsPathIntoArgs) {
+            this.args.push(window.activeTextEditor.document.uri.fsPath);
+        }
+
         PhpUnit.lastCommand = {
             phpunitPath,
             workingDirectory,
             args: this.args.slice(),
-            putFsPathIntoArgs: this.putFsPathIntoArgs
+            putFsPathIntoArgs: false
         };
-
-        if (this.putFsPathIntoArgs) {
-            this.args.push(window.activeTextEditor.document.uri.fsPath);
-        }
 
         let command = '';
 
