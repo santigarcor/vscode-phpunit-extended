@@ -22,7 +22,7 @@ export class SelectWindowTest {
         if (range) {
             let line = this.editor.document.lineAt(range.start.line);
             var wordOnCursor = this.editor.document.getText(range);
-            var isFunction = line.text.indexOf("function") != -1
+            var isFunction = line.text.indexOf("function") != -1;
             var isClass = line.text.indexOf("class") != -1;
 
             if (isFunction && wordOnCursor != null) {
@@ -65,7 +65,7 @@ export class SelectWindowTest {
             let result = null;
 
             while ((result = helper.getRegex().method.exec(windowText))) {
-                let testToAdd = result[1].toString().trim();
+                let testToAdd = result[2].toString().trim();
 
                 if (!testFunctions.length || testFunctions[0] != testToAdd) {
                     testFunctions.push('function - ' + testToAdd);

@@ -1,6 +1,6 @@
 export class Helper {
     private readonly regex = {
-        method: /\s*public*\s+function\s+(\w*)\s*\(/gi,
+        method: /\s*(public\s+){0,1}function\s+(\w+)\s*\(/gi,
         class: /class\s+(\w*)\s*{?/gi
     };
 
@@ -27,7 +27,7 @@ export class Helper {
             let regexResult = null;
 
             if ((regexResult = this.regex[type].exec(line.text))) {
-                result = regexResult[1].toString().trim();
+                result = regexResult[type === 'method' ? 2 : 1].toString().trim();
             }
 
             position += modifier;
