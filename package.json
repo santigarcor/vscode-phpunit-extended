@@ -74,6 +74,11 @@
                     "type": "array",
                     "default": [],
                     "description": "Any phpunit args (phpunit --help)"
+                },
+                "phpunit.envVars": {
+                    "type": "object",
+                    "default": {},
+                    "title": "Set environment variables before running phpunit"
                 }
             }
         },
