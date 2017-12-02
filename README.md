@@ -7,7 +7,10 @@
     "phpunit.execPath": "path/to/phpunit", // If this value is set to '' it will try to use the composer phpunit installation.
     "phpunit.args": [
         "--configuration", "./phpunit.xml.dist"
-    ]
+    ],
+    "phpunit.envVars": {
+        // Here you can define the environment variables to be set before executing phpunit
+    }
 }
 ```
 
@@ -39,4 +42,4 @@ Run with (`Cmd+Shift+P` on OSX or `Ctrl+Shift+P` on Windows and Linux) and execu
 
 ## Notes / Tips / Advanced
 * **args** is recommended to set in your 'workspace settings'. You can add any phpunit args, check phpunit --help.
-* To hook into the debugger ([github.com/felixfbecker/vscode-php-debug](https://github.com/felixfbecker/vscode-php-debug)). Add Key:`XDEBUG_CONFIG`, Value:`idekey=VSCODE` to your environment variables.
+* To hook into the debugger ([github.com/felixfbecker/vscode-php-debug](https://github.com/felixfbecker/vscode-php-debug)). Add Key:`XDEBUG_CONFIG`, Value:`idekey=VSCODE` to your `phpunit.envVars` object.
