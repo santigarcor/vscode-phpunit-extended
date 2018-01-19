@@ -10,7 +10,10 @@
     ],
     "phpunit.envVars": {
         // Here you can define the environment variables to be set before executing phpunit
-    }
+    },
+    "phpunit.excludedGroups": [
+        // Groups to be excluded when running the TestSuiteWithExclusions command
+    ]
 }
 ```
 
@@ -27,6 +30,8 @@ Run with (`Cmd+Shift+P` on OSX or `Ctrl+Shift+P` on Windows and Linux) and execu
 * `PHPUnit Test All Suite`: This command will run all the test suite.
 
 ![test-suite](images/test-suite.gif)
+
+* `PHPUnit Test All Suite With Exclusions`: This command will run the test suite without the excluded groups set in the configuration.
 
 * `PHPUnit Test`: This command will show a window to pick the test to run.
 
