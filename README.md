@@ -1,4 +1,8 @@
 # Phpunit for VSCode
+[![Version](https://vsmarketplacebadge.apphb.com/version-short/santigarcor.phpunit-extended.svg)](https://vsmarketplacebadge.apphb.com/version-short/santigarcor.phpunit-extended.svg)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/santigarcor.phpunit-extended.svg)](https://vsmarketplacebadge.apphb.com/installs-short/santigarcor.phpunit-extended.svg)
+[![Rating](https://vsmarketplacebadge.apphb.com/rating-short/santigarcor.phpunit-extended.svg)](https://vsmarketplacebadge.apphb.com/rating-short/santigarcor.phpunit-extended.svg)
+
 ## Setup
 * Install [phpunit](https://phpunit.de/) or have phpunit installed through composer.
 * Set the config values:
