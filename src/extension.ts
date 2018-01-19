@@ -20,6 +20,10 @@ export function activate(context: ExtensionContext) {
 		PHPUnitTestRunner.runTestSuite();
 	}));
 
+	context.subscriptions.push(commands.registerCommand('phpunit.TestSuiteWithExclusions', () => {
+		PHPUnitTestRunner.runTestSuiteWithExclusions();
+	}));
+
 	context.subscriptions.push(commands.registerCommand('phpunit.TestNearest', () => {
 		PHPUnitTestRunner.runNearestTest();
 	}));

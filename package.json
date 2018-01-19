@@ -2,7 +2,7 @@
     "name": "phpunit-extended",
     "displayName": "PHPUnit Extended",
     "description": "Run PHPUnit tests from VSCode.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "publisher": "santigarcor",
     "icon": "images/phpunit.png",
     "engines": {
@@ -29,6 +29,7 @@
         "onCommand:phpunit.Test",
         "onCommand:phpunit.TestFile",
         "onCommand:phpunit.TestSuite",
+        "onCommand:phpunit.TestSuiteWithExclusions",
         "onCommand:phpunit.TestNearest",
         "onCommand:phpunit.LastTest",
         "onCommand:phpunit.CancelCurrentTest"
@@ -47,6 +48,10 @@
             {
                 "command": "phpunit.TestSuite",
                 "title": "PHPUnit Test All Suite"
+            },
+            {
+                "command": "phpunit.TestSuiteWithExclusions",
+                "title": "PHPUnit Test All Suite With Exclusions"
             },
             {
                 "command": "phpunit.TestNearest",
@@ -79,6 +84,11 @@
                     "type": "object",
                     "default": {},
                     "title": "Set environment variables before running phpunit"
+                },
+                "phpunit.excludedGroups": {
+                    "type": "array",
+                    "default": [],
+                    "description": "Groups to be excluded from the tests"
                 }
             }
         },

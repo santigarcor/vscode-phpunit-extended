@@ -30,6 +30,10 @@ export class TestRunner {
         this.executeTest('suite');
     }
 
+    public runTestSuiteWithExclusions() {
+        this.executeTest('suite-with-exclusions');
+    }
+
     public runNearestTest() {
         this.executeTest('nearest');
     }
@@ -59,6 +63,9 @@ export class TestRunner {
                 break;
             case 'suite':
                 testHandler = new TestSuite(editor, args, this.outputChannel);
+                break;
+            case 'suite-with-exclusions':
+                testHandler = new TestSuite(editor, args, this.outputChannel, true);
                 break;
             case 'nearest':
                 testHandler = new NeareastTest(editor, args, this.outputChannel);
