@@ -17,7 +17,17 @@
     },
     "phpunit.excludedGroups": [
         // Groups to be excluded when running the TestSuiteWithExclusions command
-    ]
+    ],
+    "phpunit.scriptsAfterTests": {
+        "ok": [
+            {
+                "command": "some-command-with-args",
+                "args": ["-status=ok"]
+            },
+            "another-command-without-args"
+        ],
+        "error": []
+      }
 }
 ```
 
