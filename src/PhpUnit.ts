@@ -82,6 +82,17 @@ export class PhpUnit {
         phpunitProcess.stdout.on("data", (buffer: Buffer) => {
             this.outputChannel.append(buffer.toString());
         });
+        phpunitProcess.on("close", (code) => {
+            let status = code == 0 ? 'ok' : 'error';
+            workspace.getConfiguration('phpunit').scriptsAfterTests[status]
+                .forEach(script => {
+                    if (typeof script === 'string') {
+                        cp.spawn(script);
+                    } else {
+                        cp.spawn(script.command, script.args);
+                    }
+                });
+        });
 
         phpunitProcess.on("exit", (code, signal) => {
             if (signal != null) {

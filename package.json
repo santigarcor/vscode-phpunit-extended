@@ -89,6 +89,14 @@
                     "type": "array",
                     "default": [],
                     "description": "Groups to be excluded from the tests"
+                },
+                "phpunit.scriptsAfterTests": {
+                    "type": "object",
+                    "default": {
+                        "ok": [],
+                        "error": []
+                    },
+                    "description": "Scripts to execute after the tests run"
                 }
             }
         },
