@@ -21,13 +21,14 @@
     "phpunit.scriptsAfterTests": {
         "ok": [
             {
-                "command": "some-command-with-args",
-                "args": ["-status=ok"]
+            "command": "some-command-with-args",
+            "args": ["-status=ok"]
             },
             "another-command-without-args"
         ],
         "error": []
-      }
+    },
+    "phpunit.showOutput": "always" // always, error, ok
 }
 ```
 

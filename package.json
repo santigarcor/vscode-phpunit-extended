@@ -97,6 +97,11 @@
                         "error": []
                     },
                     "description": "Scripts to execute after the tests run"
+                },
+                "phpunit.showOutput": {
+                    "type": "string",
+                    "default": "always",
+                    "description": "Show the output console after the tests run (always, error, ok)."
                 }
             }
         },

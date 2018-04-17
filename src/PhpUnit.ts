@@ -40,6 +40,10 @@ export class PhpUnit {
         this.outputChannel.clear();
 
         workingDirectory = workingDirectory == null ? this.findWorkingDirectory() : workingDirectory;
+        let showOutput = workspace.getConfiguration('phpunit').showOutput;
+        if (showOutput != 'always') {
+            this.outputChannel.hide();
+        }
 
         if (workingDirectory == null) {
             return;
@@ -84,6 +88,12 @@ export class PhpUnit {
         });
         phpunitProcess.on("close", (code) => {
             let status = code == 0 ? 'ok' : 'error';
+            if (showOutput == 'ok' && code == 0) {
+                this.outputChannel.show();
+            } else if (showOutput == 'error' && code == 1) {
+                this.outputChannel.show();
+            }
+
             workspace.getConfiguration('phpunit').scriptsAfterTests[status]
                 .forEach(script => {
                     if (typeof script === 'string') {
@@ -100,7 +110,9 @@ export class PhpUnit {
             }
         });
 
-        this.outputChannel.show();
+        if (showOutput == 'always') {
+            this.outputChannel.show();
+        }
     }
 
     private findNearestFileFullPath(fileRelativeName, currentPath = '') {
